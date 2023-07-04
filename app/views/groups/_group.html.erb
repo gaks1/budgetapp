@@ -6,7 +6,7 @@
 
   <p>
     <strong>Icon:</strong>
-    <%= group.icon %>
+    <%= image_tag group.icon if group.icon.attached? %>
   </p>
 
   <p>
