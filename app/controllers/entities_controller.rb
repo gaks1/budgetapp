@@ -48,12 +48,15 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # DELETE /entities/1 or /entities/1.json
-  def destroy
-    @entity = Entity.find(params[:id])
-    @entity.destroy
-    redirect_to groups_path, notice: "Entity was successfully destroyed."
-  end
+# DELETE /entities/1 or /entities/1.json
+def destroy
+  @entity = Entity.find(params[:id])
+  @group = Group.find(params[:group_id])
+
+  @entity.destroy
+  redirect_to group_path(@group), notice: "Entity was successfully destroyed."
+end
+
   
 
   private
