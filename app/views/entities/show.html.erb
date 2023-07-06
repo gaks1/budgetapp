@@ -3,7 +3,6 @@
 <%= render @entity %>
 
 <div>
-  <%= link_to "Edit this entity", edit_group_entity_path(@entity) %> |
   <%= link_to "Back to entities", group_path(@group) %>
 
   <%= button_to "Destroy this entity",  group_entity_path(@entity), method: :delete %>

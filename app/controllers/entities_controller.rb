@@ -1,5 +1,4 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[ show edit update destroy ]
 
   # GET /entities or /entities.json
   def index
@@ -27,11 +26,9 @@ class EntitiesController < ApplicationController
     @group = Group.find(params[:group_id])
     @entity = Entity.new(entity_params)
     @entity.author = current_user
-    @entitygroup = EntityGroup.new
-    @entitygroup.group = @group
-    @entitygroup.entity = @entity
+    @entity.entity_groups.build(group: @group)
 
-    if @entity.save && @entitygroup.save
+    if @entity.save
       redirect_to group_path(@group), notice: "Entity was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -53,23 +50,17 @@ class EntitiesController < ApplicationController
 
   # DELETE /entities/1 or /entities/1.json
   def destroy
-    @group = Group.find(params[:group_id])
+    @entity = Entity.find(params[:id])
     @entity.destroy
-
-    respond_to do |format|
-      format.html { redirect_to group_path(@group), notice: "Entity was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to groups_path, notice: "Entity was successfully destroyed."
   end
+  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_entity
-      @entity = Entity.find(params[:id])
-    end
+
 
     # Only allow a list of trusted parameters through.
     def entity_params
-      params.require(:entity).permit(:name, :amount)
+      params.require(:entity).permit(:name, :amount, entity_groups_attributes: [:group_id])
     end
 end
