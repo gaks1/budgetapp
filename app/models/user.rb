@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :entities
 
   validates :name, presence: true, length: { minimum: 3, maximum: 255 }
+
+  def admin?
+    role == 'admin'
+  end
 end
