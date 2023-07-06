@@ -8,10 +8,13 @@ class EntitiesController < ApplicationController
 
   # GET /entities/1 or /entities/1.json
   def show
+    @entity = Entity.find(params[:id])
+    @group = Group.find(params[:group_id])
   end
 
   # GET /entities/new
   def new
+    @group = Group.find(params[:group_id])
     @entity = Entity.new
   end
 
@@ -21,11 +24,15 @@ class EntitiesController < ApplicationController
 
   # POST /entities or /entities.json
   def create
+    @group = Group.find(params[:group_id])
     @entity = Entity.new(entity_params)
     @entity.author = current_user
+    @entitygroup = EntityGroup.new
+    @entitygroup.group = @group
+    @entitygroup.entity = @entity
 
-    if @entity.save
-      redirect_to entity_path(@entity), notice: "Entity was successfully created."
+    if @entity.save && @entitygroup.save
+      redirect_to group_path(@group), notice: "Entity was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,10 +53,11 @@ class EntitiesController < ApplicationController
 
   # DELETE /entities/1 or /entities/1.json
   def destroy
+    @group = Group.find(params[:group_id])
     @entity.destroy
 
     respond_to do |format|
-      format.html { redirect_to entities_url, notice: "Entity was successfully destroyed." }
+      format.html { redirect_to group_path(@group), notice: "Entity was successfully destroyed." }
       format.json { head :no_content }
     end
   end
