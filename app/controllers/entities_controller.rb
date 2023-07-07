@@ -54,8 +54,6 @@ class EntitiesController < ApplicationController
     redirect_to group_path(@group), notice: 'Entity was successfully destroyed.'
   end
 
-
-
   private
 
   # Only allow a list of trusted parameters through.
