@@ -2,6 +2,7 @@
 
 <div class="show-group">
 <h1>Transaction</h1>
+<div class="total-name">
 <div class="total">
 <p>Total amount:</p>
 <p>
@@ -18,7 +19,7 @@
 <%= @group.name %>
 </p>
 </div>
-
+</div>
 <div class="entities">
   <% @entities.each do |entity| %>
     <%= render entity %>
@@ -26,8 +27,6 @@
 </div>
 
 <div>
-  <%= link_to "Back to groups", groups_path %>
-
   <%= link_to "New transaction", new_group_entity_path(@group), class: "group-new"  %>
 </div>
 </div>

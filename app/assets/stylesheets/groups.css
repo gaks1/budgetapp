@@ -21,7 +21,7 @@
   justify-content: space-between;
   border: 0.5px solid #336daf;
   border-radius: 5px;
-  padding-top: 10px;
+  padding: 10px;
   width: 80%;
   background-color: #fff;
 }
@@ -38,7 +38,15 @@
 .group-img {
   width: 100px;
   height: 100px;
-  margin: 0 10px 10px 10px;
+}
+
+.delete {
+  background-color: #fff;
+  color: #336daf;
+  border: 1px solid #336daf;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .group-new {
@@ -53,6 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .new-form-group {
@@ -73,22 +82,27 @@
   height: 100vh;
 }
 
+.total-name {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .total {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  gap: 500px;
-  padding-left: 10px;
 }
 
 .show-group-name {
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 500px;
 }
 
 .entities {

@@ -11,6 +11,16 @@
   align-items: center;
 }
 
+.back-btn {
+  background-color: #fff;
+  color: #336daf;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 40px;
+}
+
 .brand-name {
   font-size: 30px;
   font-weight: bold;
