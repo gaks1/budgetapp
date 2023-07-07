@@ -1,0 +1,7 @@
+<header class="header">
+  <% if user_signed_in? %>
+  <%= link_to "<-", groups_path, class: "back-btn" %>
+  <%= link_to "Money Mind", groups_path, class: 'brand-name shared' %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'logout-button' %>
+  <% end %>
+</header>

@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="show-group">
+<h1>Transaction</h1>
+<div class="total-name">
+<div class="total">
+<p>Total amount:</p>
+<p>
+  <strong>$</strong>
+  <%= @totalamount[@group.id] %>
+</p>
+</div>
+
+<div class="show-group-name">
+<p>
+<%= image_tag(@group.icon, class: "group-img") if @group.icon.attached? %>
+</p>
+<p>
+<%= @group.name %>
+</p>
+</div>
+</div>
+<div class="entities">
+  <% @entities.each do |entity| %>
+    <%= render entity %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "New transaction", new_group_entity_path(@group), class: "group-new"  %>
+</div>
+</div>

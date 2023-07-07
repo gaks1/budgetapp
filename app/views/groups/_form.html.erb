@@ -1,0 +1,27 @@
+<%= form_with(model: group, html: {class: "login-form"}) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: "login-input" %>
+  </div>
+
+  <div>
+    <%= form.label :icon, style: "display: block" %>
+    <%= form.file_field :icon, class: "login-input" %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: "reg-form-submit" %>
+  </div>
+<% end %>
