@@ -1,21 +1,25 @@
-<div id="<%= dom_id group %>">
+<div class="group">
+<p>
+<%= image_tag(group.icon, class: "group-img") if group.icon.attached? %>
+</p>
+
+<div class="groupname">
   <p>
-    <strong>Name:</strong>
-    <%= group.name %>
+  <%= link_to group.name, group_path(group), class: "group-link" %>
   </p>
 
   <p>
-    <strong>Icon:</strong>
-    <%= image_tag group.icon if group.icon.attached? %>
+    <%= group.created_at %>
   </p>
+</div>
 
-  <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
-  </p>
-
-  <p>
-    <strong>Total Amount:</strong>
+<div class="groupname">
+  <p style="margin-right: 10px;">
+    <strong>$</strong>
     <%= @totalamount[group.id] %>
   </p>
+
+  <%= button_to "Delete", group_path(group), method: :delete %>
+
+  </div>
 </div>

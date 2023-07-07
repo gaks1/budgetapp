@@ -1,19 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @group %>
-<div id="entities">
+<div class="show-group">
+<h1>Transaction</h1>
+<div class="total">
+<p>Total amount:</p>
+<p>
+  <strong>$</strong>
+  <%= @totalamount[@group.id] %>
+</p>
+</div>
+
+<div class="show-group-name">
+<p>
+<%= image_tag(@group.icon, class: "group-img") if @group.icon.attached? %>
+</p>
+<p>
+<%= @group.name %>
+</p>
+</div>
+
+<div class="entities">
   <% @entities.each do |entity| %>
     <%= render entity %>
-    <p>
-      <%= link_to "Show this entity", group_entity_path(@group, entity) %>
-    </p>
   <% end %>
 </div>
 
 <div>
   <%= link_to "Back to groups", groups_path %>
 
-  <%= button_to "Destroy this group", @group, method: :delete %>
-
-  <%= link_to "New entity", new_group_entity_path(@group) %>
+  <%= link_to "New transaction", new_group_entity_path(@group), class: "group-new"  %>
+</div>
 </div>

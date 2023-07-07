@@ -1,19 +1,19 @@
-.jumbotron{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #336daf;
-    height: 100vh;
-    margin-bottom: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 2em;
-    text-shadow: 2px 2px 4px #000000;
+.jumbotron {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #336daf;
+  height: 100vh;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 2em;
+  text-shadow: 2px 2px 4px #000;
 }
