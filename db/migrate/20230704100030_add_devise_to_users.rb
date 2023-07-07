@@ -53,5 +53,6 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
       t.remove :reset_password_token, :reset_password_sent_at
       t.remove :remember_created_at
       t.remove :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email
+    end
   end
 end
