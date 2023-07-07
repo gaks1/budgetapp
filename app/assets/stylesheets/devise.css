@@ -1,5 +1,5 @@
 .login-form {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
   padding: 20px;
   border: 1px solid #ddd;
@@ -55,4 +55,12 @@ label {
 .login-form-container {
   background-color: #336daf;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shared {
+  color: #fff;
 }

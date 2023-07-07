@@ -24,7 +24,6 @@ class EntitiesController < ApplicationController
     @group = Group.find(params[:group_id])
     @entity = Entity.new(entity_params)
     @entity.author = current_user
-    @entity.entity_groups.build(group: @group)
 
     if @entity.save
       redirect_to group_path(@group), notice: 'Entity was successfully created.'
@@ -61,6 +60,6 @@ class EntitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def entity_params
-    params.require(:entity).permit(:name, :amount, entity_groups_attributes: [:group_id])
+    params.require(:entity).permit(:name, :amount, group_ids: [])
   end
 end
